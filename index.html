@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOME TASK: PRESENTATION COACH</title>
+    <title>SPEAKING TASK: 30-60 SECONDS</title>
     <style>
         :root {
             --primary: #2980b9;
             --accent: #d35400;
             --success: #27ae60;
+            --error: #e74c3c;
             --bg: #f8f9f9;
         }
 
@@ -16,178 +17,145 @@
         .container { max-width: 850px; width: 100%; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
         
         header { text-align: center; border-bottom: 3px solid var(--primary); margin-bottom: 20px; }
-        .instr-es { font-style: italic; color: #7f8c8d; font-size: 0.85rem; margin-bottom: 10px; }
+        .instr-es { font-style: italic; color: #7f8c8d; font-size: 0.85rem; }
 
         .video-card { background: #34495e; color: white; padding: 15px; border-radius: 12px; text-align: center; margin-bottom: 20px; }
-        .video-btn { display: inline-block; background: #e74c3c; color: white; padding: 10px 20px; text-decoration: none; border-radius: 50px; font-weight: bold; }
+        .video-btn { display: inline-block; background: var(--error); color: white; padding: 10px 20px; text-decoration: none; border-radius: 50px; font-weight: bold; }
 
-        /* LANGUAGE TOOLBOX: PRESENTE SIMPLE & ADVERBIOS */
-        .toolbox {
-            background: #eaf2f8; border: 2px solid #3498db; padding: 15px;
-            border-radius: 10px; margin-bottom: 25px;
+        /* RECORDING BOX */
+        .recording-box { 
+            background: #fff; border: 3px solid #eee; padding: 25px; 
+            border-radius: 15px; text-align: center; margin-top: 20px; 
         }
-        .toolbox h3 { margin: 0 0 10px 0; color: #21618c; font-size: 1rem; text-transform: uppercase; }
         
-        .tool-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .tool-column { background: white; padding: 10px; border-radius: 8px; }
-        .tool-column h4 { margin: 0 0 5px 0; font-size: 0.8rem; color: var(--accent); }
+        #timer { 
+            font-size: 3rem; font-weight: bold; color: #bdc3c7; margin-bottom: 10px; 
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .timer-short { color: #bdc3c7; }
+        .timer-good { color: var(--success) !important; }
+        .timer-long { color: var(--error) !important; }
+
+        .record-btn { 
+            background: var(--error); color: white; border: none; padding: 15px 40px; 
+            border-radius: 50px; font-weight: bold; cursor: pointer; transition: 0.3s; 
+            font-size: 1.1rem;
+        }
+        .record-btn.recording { animation: pulse 1.5s infinite; background: #c0392b; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
         
-        .tool-list { list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 1.5; }
-        .tool-list li { margin-bottom: 3px; border-bottom: 1px solid #f2f2f2; }
-        .tool-list b { color: #2e86c1; }
+        .condition-badge {
+            display: inline-block; background: #fdf2e9; color: var(--accent);
+            padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; margin-bottom: 15px;
+        }
 
-        .section-title { color: var(--primary); font-weight: bold; text-transform: uppercase; margin-top: 20px; display: block; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-        .student-info { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; }
-        select, textarea, input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit; }
-
-        .step-item { background: #fff; padding: 12px; border-radius: 8px; margin-bottom: 10px; border: 1px solid #eee; }
-        .label-es { display: block; font-size: 0.75rem; color: #95a5a6; margin-top: 2px; }
-
-        #reflectionBox { height: 140px; font-size: 1rem; resize: none; }
-        .btn-submit { width: 100%; padding: 15px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; background: var(--success); color: white; font-size: 1rem; margin-top: 15px; }
-
-        @media (max-width: 600px) { .tool-grid { grid-template-columns: 1fr; } .student-info { grid-template-columns: 1fr; } }
+        audio { width: 100%; margin-top: 20px; }
+        .btn-submit { width: 100%; padding: 18px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; background: var(--success); color: white; font-size: 1.1rem; margin-top: 25px; }
+        
+        textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; height: 120px; margin-bottom: 10px; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <h1>PRESENTATION COACH: DAILY TIPS</h1>
-        <p class="instr-es">Usa el Presente Simple y Adverbios de Frecuencia (Always, Usually, etc.)</p>
+        <h1>🎤 SPEAKING CHALLENGE</h1>
+        <p class="instr-es">Presente Simple + Adverbios de Frecuencia</p>
     </header>
 
     <div class="video-card">
         <a href="https://drive.google.com/file/d/17kky1iczGlVTzWItCJVWJ4inlrqMY14S/view?usp=sharing" target="_blank" class="video-btn">▶️ WATCH ABBY'S VIDEO</a>
     </div>
 
-    <div class="toolbox">
-        <h3>🛠️ Present Simple & Adverbs Toolbox</h3>
-        <div class="tool-grid">
-            <div class="tool-column">
-                <h4>Frequency Adverbs</h4>
-                <ul class="tool-list">
-                    <li><b>Always</b> (Siempre)</li>
-                    <li><b>Usually</b> (Normalmente)</li>
-                    <li><b>Sometimes</b> (A veces)</li>
-                    <li><b>Never</b> (Nunca)</li>
-                </ul>
-            </div>
-            <div class="tool-column">
-                <h4>Present Simple Chunks</h4>
-                <ul class="tool-list">
-                    <li><b>I always practice</b> with...</li>
-                    <li><b>I usually speak</b> slow...</li>
-                    <li><b>Abby says</b> that...</li>
-                    <li><b>I think</b> it is easy...</li>
-                </ul>
-            </div>
-        </div>
+    <span class="section-title">Step 1: Write your Script</span>
+    <textarea id="reflectionBox" placeholder="Write your ideas here. Remember to use ALWAYS, USUALLY, SOMETIMES..."></textarea>
+
+    <span class="section-title">Step 2: Record your Voice</span>
+    <div class="recording-box">
+        <div class="condition-badge">⏱️ GOAL: 30 - 60 SECONDS</div>
+        <div id="timer">00:00</div>
+        <button id="recordBtn" class="record-btn">🔴 START RECORDING</button>
+        <audio id="audioPlayback" controls style="display:none;"></audio>
+        <p id="recordStatus" style="margin-top:15px; font-size:0.9rem; color:#7f8c8d;">Click to start</p>
     </div>
 
-    <div class="student-info">
-        <select id="courseSelect" onchange="updateStudentList()">
-            <option value="">-- Class --</option>
-        </select>
-        <select id="studentSelect" disabled>
-            <option value="">-- Name --</option>
-        </select>
-    </div>
-
-    <span class="section-title">Part 1: Abby's Tips (Present Simple)</span>
-    <div class="step-item">
-        <label><b>Tip 1:</b></label>
-        <input type="text" id="tip1" placeholder="Example: Abby always says speak slowly.">
-    </div>
-    <div class="step-item">
-        <label><b>Tip 2:</b></label>
-        <input type="text" id="tip2" placeholder="Example: She usually suggests to speak loudly.">
-    </div>
-    <div class="step-item">
-        <label><b>Tip 3:</b></label>
-        <input type="text" id="tip3" placeholder="Example: Good speakers always say words clearly.">
-    </div>
-
-    <div class="step-item" style="border-left: 5px solid var(--accent); background: #fdf2e9;">
-        <label><b>💡 Practice makes perfect: How do you practice?</b></label>
-        <span class="label-es">(Usa adverbios: I always/usually practice with...)</span>
-        <textarea id="practiceExpl" style="height: 60px;" placeholder="I usually practice with my phone because..."></textarea>
-    </div>
-
-    <span class="section-title">Part 2: Personal Reflection</span>
-    <label style="font-size: 0.9rem; font-weight: bold;">Which tip is hard? How do you improve? (5-8 lines)</label>
-    <span class="label-es">(Escribe en presente simple sobre tu rutina de presentación)</span>
-    <textarea id="reflectionBox" placeholder="Example: I sometimes speak fast because I am nervous. I always want to improve..."></textarea>
-
-    <span class="section-title">Part 3: My Motto</span>
-    <input type="text" id="mottoBox" placeholder="Your original slogan here!">
-
-    <button id="submitBtn" class="btn-submit" onclick="finalSubmission()">SUBMIT & DOWNLOAD WORD</button>
+    <button id="submitBtn" class="btn-submit" onclick="finalSubmission()">SUBMIT TASK</button>
 </div>
 
 <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbyxUZYD8cFFTZpI-5vjWtroFLLm-cA_ZpIszHIdG52YmsUfgJjEmrIVw31zDeGFfkGqEw/exec";
-    
-    const database = {
-        "5thA": ["ARANEDA SEPÚLVEDA MATÍAS SANTIAGO", "AYALA OLIVARES MÁXIMO ALONSO", "CAMPUSANO PÉREZ ISIDORA MONTSERRAT", "CANESSA VEGA BERNARDO FRANCISCO", "CARRASCO RAMÍREZ JAVIERA PAZ", "CHAMORRO SAN MARTÍN SEBASTIÁN FRANCISCO", "CORREA LEAL SANTIAGO LEÓN", "CUKIC LUENGO BRUNO EDUARDO", "ESPINOZA OLIVARES LUCAS ALEJANDRO", "FERNÁNDEZ ESCOBAR MARTÍN FELIPE", "FERNÁNDEZ RODRIGUEZ FERNANDA NICOLE", "GARNIER VELÁSQUEZ MAXIMILIANO LORENZO", "GARZON MACUER AMANDA SOFÍA", "GONZÁLEZ ARRIAGADA SOFÍA ISIDORA", "IBARRA BARRAZA DOMINGA PAZ", "JARAMILLO CANALES JULIETA ANTONIA", "JIMÉNEZ MONSALVES FERNANDA PAZ", "MACUADA GONZÁLEZ TOMÁS ALONSO", "MEZA MISTO FRANCISCA IGNACIA", "MUÑOZ OLIVOS SOFÍA ANTONIA", "NECULQUEO MURA JAVIER MATIAS", "OSORIO MUÑOZ LUCIANO", "PARRA ALIAGA AGUSTÍN CLEMENTE LEÓN", "RIQUELME CONTRERAS JULIETA ISADORA", "SALINAS SAAVEDRA EMILIANO IGNACIO", "SÁNCHEZ MORAGA NICOLÁS ARTURO", "SEISDEDOS CARVAJAL ANGELA GUADALUPE", "SEREY VALDES RENATO CLEMENTE", "SEYMOUR REYES TRINIDAD EMILIA", "VALLEJOS NAVARRO JOSEFA AGUSTINA", "VELOSO MUÑOZ ISABELLA AMARAL", "VERGARA FUENZALIDA JOAQUÍN IGNACIO", "VERGARA MARÍN DAMIÁN ALONSO", "VINES ZÚÑIGA DAMIÁN ALBERTO", "ZURITA BUSTOS ANTONIA INÉS"],
-        "5thB": ["ACUÑA ALARCÓN DOMINGO", "AGUILAR MENARES VALENTÍN IGNACIO", "ALLENDE GARAY ALFONSO ERNESTO", "ARA CAMPUSANO VALENTINA ANTONIA", "ARAYA ESCALONA JOSE MANUEL", "ÁVILA RAMÍREZ AMANDA", "BOBADILLA PONCE VICENTE IGNACIO", "CASTILLO CARVAJAL TRINIDAD PAZ", "CONTRERAS RAMOS AMANDA BELÉN", "DÍAZ CORTÉS NICOLÁS IGNACIO", "DURÁN FREZ FLORENCIA CATALINA", "FARÍAS VALENZUELA REBECCA ESPERANZA", "GARRIDO DONOSO AMANDA", "GÓMEZ BURGOS ROSARIO BELÉN", "GONZÁLEZ ESPINOZA ARANTZA MICAELA", "HOLZMANN CÁRCAMO ANTONIA IGNACIA", "LAZO DÍAZ RENATA ANDREA", "LÓPEZ OJEDA AGUSTÍN SANTIAGO", "MENESES MADARIAGA GASPAR BAUTISTA", "MORAGA MARTINEZ VICTORIA ESPERANZA", "MOSQUEIRA VALDIVIA CAMILO ANDRÉS", "ORMEÑO LACHR PEDRO JOAQUIN", "OSORNO ARRIAGADA AMANDA MARIANNE", "PARRA PIMENTEL CONSUELO EMILIA", "REYES MARCHANT EMILIANO BAUTISTA", "RIVERA SAAVEDRA DIEGO ANDRÉS", "ROMÁN PEÑA GUSTAVO EMILIO", "RUIZ GARCÍA SANTIAGO ALONSO", "RUZ REYES MATÍAS ALEJANDRO", "SARRIA ASTUDILLO EVA MAGDALENA", "TRUJILLO BURGOS SANTIAGO ALONSO", "URQUEJO CHACANO RAFAELA", "VALENZUELA GONZÁLEZ JOSÉ MIGUEL", "VÁSQUEZ TAPIA SOFÍA ANTONIA", "VILLANUEVA SIMON GASPAR ALBERTO", "ZAMORA TORRES FACUNDO AGUSTÍN"],
-        "5thC": ["ABURTO FUENTEALBA IGNACIO ANDRÉS", "AGUILA MOSCOSO LÍA ISABELLA", "ALBORNOZ IBARRA LAURA ALEJANDRA", "ALEGRÍA RAMÍREZ JAVIERA IGNACIA", "APIOLAZA SCACCHI DIEGO ALEJANDRO", "BRANTE CATAFAU RAFAEL BAUTISTA", "BRUNAUD GALLARDO MARIA FERNANDA", "CADIU MELLA MAXIMILIANO IGNACIO", "CANTO MORAGA FELIPE", "CASTILLO MORALES VICENTE SALVADOR", "CASTRO CEPEDA RENATO", "CAVIERES PASMIÑO ROSARIO ISABEL", "CEPEDA PEDREROS CAMILO IGNACIO", "CONTRERAS CÁRDENAS JOSEFA IGNACIA", "CERDA OSSES RAFAEL ORLANDO", "CORTÉS JARA EMMA VALENTINA", "FECCI DUARTE GASPAR OLIVER", "FERNÁNDEZ SALINAS RAFAELA ANHAIS", "GARCÍA ANDRADE MAITE CELESTE", "GONZÁLEZ HERNÁNDEZ AGUSTINA PAZ", "GONZÁLEZ YÁÑEZ LUCIANO ALONSO", "HENRÍQUEZ LÓPEZ ANTONIO MIGUEL", "MORALES MORIS BERNARDO LEON", "MUÑOZ LEÓN MATILDE IGNACIA", "PAVEZ KNUST PEDRO ENRIQUE", "PIZARRO PAREDES ALONSO GABRIEL", "QUINTEROS MONDIGLIO LEONOR IGNACIA", "QUIROZ PÉREZ RAMIRO AGUSTÍN", "REYES BICHARA FRANCO FARID", "REYES CAÑAS JOAQUÍN ALEJANDRO", "RIQUELME ZÚÑIGA ISIDORA PAZ", "SALAZAR BELMAR AGUSTÍN ALONSO", "SANTOS ALVAREZ MIA SOPHIA", "TOBAR GONZÁLEZ FLORENCIA AYLIN", "VALENZUELA GONZÁLEZ GABRIEL IGNACIO", "VALLE FUENTES ELISA"]
-    };
+    let mediaRecorder;
+    let audioChunks = [];
+    let startTime;
+    let timerInterval;
+    let durationInSeconds = 0;
 
-    window.onload = () => {
-        const cs = document.getElementById('courseSelect');
-        Object.keys(database).forEach(c => {
-            let o = document.createElement('option'); o.value = c; o.innerHTML = c;
-            cs.appendChild(o);
-        });
-        if (localStorage.getItem("speech_reflection_done") === "true") {
-            document.querySelectorAll('input, select, textarea, button').forEach(el => el.disabled = true);
-            alert("Task already sent.");
-        }
-    };
+    const timerDisplay = document.getElementById('timer');
+    const recordBtn = document.getElementById('recordBtn');
+    const audioPlayback = document.getElementById('audioPlayback');
+    const recordStatus = document.getElementById('recordStatus');
 
-    function updateStudentList() {
-        const c = document.getElementById('courseSelect').value;
-        const s = document.getElementById('studentSelect');
-        s.innerHTML = '<option value="">-- Name --</option>';
-        if (c) {
-            s.disabled = false;
-            database[c].sort().forEach(n => {
-                let o = document.createElement('option'); o.value = n; o.innerHTML = n;
-                s.appendChild(o);
-            });
+    function updateTimer() {
+        durationInSeconds++;
+        const mins = Math.floor(durationInSeconds / 60).toString().padStart(2, '0');
+        const secs = (durationInSeconds % 60).toString().padStart(2, '0');
+        timerDisplay.innerText = `${mins}:${secs}`;
+
+        // Lógica de colores del tiempo
+        if (durationInSeconds >= 30 && durationInSeconds <= 60) {
+            timerDisplay.className = 'timer-good';
+        } else if (durationInSeconds > 60) {
+            timerDisplay.className = 'timer-long';
+        } else {
+            timerDisplay.className = 'timer-short';
         }
     }
 
-    function downloadWord(name, course, content) {
-        const header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'></head><body>";
-        const footer = "</body></html>";
-        const blob = new Blob(['\ufeff', header + content + footer], { type: 'application/msword' });
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = `Reflection_${name.replace(/ /g, '_')}.doc`;
-        link.click();
-    }
+    recordBtn.addEventListener('click', async () => {
+        if (!mediaRecorder || mediaRecorder.state === 'inactive') {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            mediaRecorder = new MediaRecorder(stream);
+            audioChunks = [];
+            durationInSeconds = 0;
+            timerDisplay.innerText = "00:00";
+            timerDisplay.className = 'timer-short';
+
+            mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+            mediaRecorder.onstop = () => {
+                clearInterval(timerInterval);
+                const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                audioPlayback.src = URL.createObjectURL(audioBlob);
+                audioPlayback.style.display = 'block';
+                
+                if (durationInSeconds < 30) {
+                    recordStatus.innerHTML = "❌ <b>Too short!</b> Please record at least 30 seconds.";
+                } else if (durationInSeconds > 60) {
+                    recordStatus.innerHTML = "❌ <b>Too long!</b> Try to keep it under 60 seconds.";
+                } else {
+                    recordStatus.innerHTML = "✅ <b>Perfect timing!</b> You can now submit.";
+                }
+            };
+
+            mediaRecorder.start();
+            timerInterval = setInterval(updateTimer, 1000);
+            recordBtn.innerText = "⏹️ STOP";
+            recordBtn.classList.add('recording');
+        } else {
+            mediaRecorder.stop();
+            recordBtn.innerText = "🔴 RE-RECORD";
+            recordBtn.classList.remove('recording');
+        }
+    });
 
     async function finalSubmission() {
-        const name = document.getElementById('studentSelect').value;
-        const course = document.getElementById('courseSelect').value;
-        const t1 = document.getElementById('tip1').value;
-        const t2 = document.getElementById('tip2').value;
-        const t3 = document.getElementById('tip3').value;
-        const pr = document.getElementById('practiceExpl').value;
-        const re = document.getElementById('reflectionBox').value;
-        const mo = document.getElementById('mottoBox').value;
+        const text = document.getElementById('reflectionBox').value;
+        if (!text || audioChunks.length === 0) return alert("Write your script and record your voice!");
+        
+        if (durationInSeconds < 30 || durationInSeconds > 60) {
+            return alert("Your recording must be between 30 and 60 seconds!");
+        }
 
-        if (!name || !t1 || !t2 || !t3 || !pr || !re || !mo) return alert("Please fill all parts!");
-
-        try {
-            await fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: JSON.stringify({ firstName: name, course: course + " - SIMPLE PRESENT", text: `Tips: ${t1}, ${t2}, ${t3} | Practice: ${pr} | Reflection: ${re} | Motto: ${mo}` }) });
-            downloadWord(name, course, `<h2>REFLECTION</h2><p><b>Student:</b> ${name}</p><p><b>Tips:</b> ${t1}<br>${t2}<br>${t3}</p><p><b>Practice:</b> ${pr}</p><p><b>Reflection:</b> ${re}</p><p><b>Motto:</b> ${mo}</p>`);
-            localStorage.setItem("speech_reflection_done", "true");
-            alert("✅ Done! Downloaded.");
-            location.reload();
-        } catch (e) { alert("Error."); }
+        alert("✅ Task Completed! Great job.");
+        location.reload();
     }
 </script>
 </body>
