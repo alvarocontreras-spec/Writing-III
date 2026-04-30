@@ -10,6 +10,7 @@
             --accent: #e67e22;
             --success: #27ae60;
             --bg: #f4f7f6;
+            --box-bg: #ebf5fb;
         }
 
         body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); padding: 10px; display: flex; justify-content: center; }
@@ -17,87 +18,80 @@
         
         header { text-align: center; border-bottom: 4px solid var(--primary); margin-bottom: 20px; padding-bottom: 10px; }
         h1 { color: #2c3e50; margin: 0; font-size: 1.5rem; }
-        .instr-es { font-style: italic; color: #7f8c8d; font-size: 0.9rem; margin-top: 5px; }
+        .instr-es { font-style: italic; color: #7f8c8d; font-size: 0.9rem; }
 
-        .video-card { 
-            background: #2c3e50; color: white; padding: 20px; border-radius: 12px; 
-            text-align: center; margin-bottom: 25px; 
-        }
-        .video-btn { 
-            display: inline-block; background: #e74c3c; color: white; padding: 12px 25px; 
-            text-decoration: none; border-radius: 50px; font-weight: bold; margin-top: 10px;
-            transition: 0.3s;
-        }
-        .video-btn:hover { background: #c0392b; transform: scale(1.05); }
+        .video-card { background: #2c3e50; color: white; padding: 15px; border-radius: 12px; text-align: center; margin-bottom: 25px; }
+        .video-btn { display: inline-block; background: #e74c3c; color: white; padding: 10px 20px; text-decoration: none; border-radius: 50px; font-weight: bold; margin-top: 5px; }
 
-        /* LANGUAGE TOOLBOX STYLE */
+        /* NUEVA LANGUAGE TOOLBOX CON CHUNKS Y CONECTORES */
         .toolbox {
-            background: #e8f4fd; border: 2px dashed var(--primary); padding: 15px;
-            border-radius: 10px; margin-bottom: 25px;
+            background: var(--box-bg); border: 2px solid #aed6f1; padding: 18px;
+            border-radius: 12px; margin-bottom: 25px;
         }
-        .toolbox h3 { margin-top: 0; color: var(--primary); font-size: 1.1rem; border-bottom: 1px solid #abd4f1; }
-        .tool-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 0.85rem; }
-        .tool-grid ul { margin: 5px 0; padding-left: 18px; }
-        .tool-grid b { color: #2980b9; }
+        .toolbox h3 { margin: 0 0 10px 0; color: #2874a6; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; }
+        
+        .tool-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; }
+        .tool-column { background: white; padding: 12px; border-radius: 8px; border: 1px solid #d6eaf8; }
+        .tool-column h4 { margin: 0 0 8px 0; font-size: 0.85rem; color: var(--accent); text-transform: uppercase; }
+        
+        .tool-list { list-style: none; padding: 0; margin: 0; font-size: 0.8rem; line-height: 1.6; }
+        .tool-list li { margin-bottom: 4px; padding-bottom: 4px; border-bottom: 1px solid #f2f2f2; }
+        .tool-list b { color: #2e86c1; }
 
         .section-title { color: var(--primary); font-weight: bold; text-transform: uppercase; margin-top: 25px; display: block; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-bottom: 15px; }
-
         .student-info { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
         select, textarea, input { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; box-sizing: border-box; font-family: inherit; }
 
         .step-item { background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 10px; border: 1px solid #eee; }
-        .step-item label { font-weight: bold; display: block; margin-bottom: 5px; color: #34495e; font-size: 0.95rem; }
-        .label-es { display: block; font-size: 0.8rem; color: #95a5a6; font-weight: normal; margin-bottom: 8px; }
-
-        .practice-highlight { border-left: 5px solid var(--accent); background: #fdf2e9; }
+        .label-es { display: block; font-size: 0.8rem; color: #95a5a6; margin-bottom: 8px; }
 
         #reflectionBox { height: 160px; font-size: 1.05rem; resize: none; line-height: 1.6; }
-        #mottoBox { font-weight: bold; color: var(--accent); text-align: center; font-size: 1.2rem; border-color: var(--accent); }
+        .btn-submit { width: 100%; padding: 18px; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; background: var(--success); color: white; margin-top: 20px; font-size: 1.1rem; }
 
-        .btn-submit { 
-            width: 100%; padding: 18px; border: none; border-radius: 10px; font-weight: bold; 
-            cursor: pointer; transition: 0.3s; font-size: 1.1rem; background: var(--success); 
-            color: white; margin-top: 20px; box-shadow: 0 4px 0 #219150;
-        }
-        .btn-submit:hover { background: #219150; transform: translateY(-2px); }
-
-        #blockMessage { display:none; background: #f8d7da; color: #721c24; padding: 20px; border-radius: 8px; text-align: center; font-weight: bold; margin-bottom: 20px; }
-
-        @media (max-width: 600px) { .tool-grid { grid-template-columns: 1fr; } .student-info { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { .tool-grid { grid-template-columns: 1fr; } .student-info { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <h1>🎤 PRESENTATION COACH: ABBY'S TIPS</h1>
-        <p class="instr-es">Mira el video de Abby y completa tu reflexión autónoma en casa.</p>
+        <h1>🎤 PRESENTATION COACH: MY REFLECTION</h1>
+        <p class="instr-es">Usa la "Language Box" para ayudarte a escribir tus ideas en inglés.</p>
     </header>
 
-    <div id="blockMessage">⚠️ Ya has enviado esta tarea. ¡Excelente trabajo!</div>
-
     <div class="video-card">
-        <p style="margin: 0;"><b>Step 1:</b> Watch the video in Google Drive</p>
-        <a href="https://drive.google.com/file/d/17kky1iczGlVTzWItCJVWJ4inlrqMY14S/view?usp=sharing" target="_blank" class="video-btn">▶️ VER VIDEO DE ABBY</a>
+        <p style="margin: 0;"><b>Step 1:</b> Watch the video before starting</p>
+        <a href="https://drive.google.com/file/d/17kky1iczGlVTzWItCJVWJ4inlrqMY14S/view?usp=sharing" target="_blank" class="video-btn">▶️ WATCH ABBY'S VIDEO</a>
     </div>
 
     <div class="toolbox">
-        <h3>🛠️ Language Toolbox (Caja de Herramientas)</h3>
+        <h3>🛠️ Academic Language Box</h3>
         <div class="tool-grid">
-            <div>
-                <b>Identifying Tips:</b>
-                <ul>
-                    <li>Abby says: <b>"Speak slowly"</b></li>
-                    <li>She says: <b>"Speak loudly"</b></li>
-                    <li>She says: <b>"Say words clearly"</b></li>
+            <div class="tool-column">
+                <h4>Giving Opinions</h4>
+                <ul class="tool-list">
+                    <li><b>In my opinion,</b> ...</li>
+                    <li><b>I think that</b> ...</li>
+                    <li><b>I believe that</b> ...</li>
+                    <li><b>For me,</b> ...</li>
                 </ul>
             </div>
-            <div>
-                <b>Practicing & Reflection:</b>
-                <ul>
-                    <li>Practice with: <b>Family / Friends / Phone</b></li>
-                    <li>Hardest for me: <b>"Speaking slowly"</b></li>
-                    <li>Next time: <b>"I plan to practice more"</b></li>
+            <div class="tool-column">
+                <h4>Connectors</h4>
+                <ul class="tool-list">
+                    <li><b>Also,</b> (Además)</li>
+                    <li><b>Because</b> (Porque)</li>
+                    <li><b>However,</b> (Sin embargo)</li>
+                    <li><b>For example,</b> (Por ejemplo)</li>
+                </ul>
+            </div>
+            <div class="tool-column">
+                <h4>Future Plans</h4>
+                <ul class="tool-list">
+                    <li><b>I plan to</b> ...</li>
+                    <li><b>I am going to</b> ...</li>
+                    <li><b>I will try to</b> ...</li>
+                    <li><b>I want to improve...</b></li>
                 </ul>
             </div>
         </div>
@@ -112,46 +106,38 @@
         </select>
     </div>
 
-    <span class="section-title">Part 1: Identifying Tips</span>
-    
+    <span class="section-title">Part 1: Identifying Abby's Tips</span>
     <div class="step-item">
-        <label>Tip 1: What is the first advice?</label>
-        <span class="label-es">(¿Cuál es el primer consejo de Abby?)</span>
-        <input type="text" id="tip1" placeholder="Example: Speak slowly...">
+        <label><b>Tip 1:</b> What is her first advice?</label>
+        <input type="text" id="tip1" placeholder="Abby says that we should...">
+    </div>
+    <div class="step-item">
+        <label><b>Tip 2:</b> What is her second advice?</label>
+        <input type="text" id="tip2" placeholder="She also suggests...">
+    </div>
+    <div class="step-item">
+        <label><b>Tip 3:</b> What is her third advice?</label>
+        <input type="text" id="tip3" placeholder="Finally, she says...">
     </div>
 
-    <div class="step-item">
-        <label>Tip 2: What is the second advice?</label>
-        <span class="label-es">(¿Cuál es el segundo consejo de Abby?)</span>
-        <input type="text" id="tip2" placeholder="Example: Speak loudly...">
-    </div>
-
-    <div class="step-item">
-        <label>Tip 3: What is the third advice?</label>
-        <span class="label-es">(¿Cuál es el tercer consejo de Abby?)</span>
-        <input type="text" id="tip3" placeholder="Example: Say each word clearly...">
-    </div>
-
-    <div class="step-item practice-highlight">
-        <label>💡 How can we practice according to Abby?</label>
-        <span class="label-es">(¿Cómo podemos practicar según Abby? Menciona personas o herramientas)</span>
-        <textarea id="practiceExpl" style="height: 60px;" placeholder="I can practice with..."></textarea>
+    <div class="step-item" style="border-left: 5px solid var(--accent); background: #fdf2e9;">
+        <label><b>💡 How can we practice?</b></label>
+        <span class="label-es">(Explain who to practice with or what tools to use)</span>
+        <textarea id="practiceExpl" style="height: 60px;" placeholder="I think we can practice by..."></textarea>
     </div>
 
     <span class="section-title">Part 2: Personal Reflection</span>
-    <label style="font-weight: bold; font-size: 0.9rem;">Which tip is the hardest for you? How will you improve next time?</label>
-    <span class="label-es">(¿Qué consejo es más difícil para ti? ¿Cómo vas a mejorar en tu próxima presentación?)</span>
-    <textarea id="reflectionBox" placeholder="Write 5 to 8 lines..."></textarea>
+    <label><b>Which tip is the hardest for you and why? How will you improve?</b></label>
+    <span class="label-es">(Usa conectores como "Because" o "However" en tu párrafo)</span>
+    <textarea id="reflectionBox" placeholder="Example: In my opinion, speaking slowly is hard because..."></textarea>
 
     <span class="section-title">Part 3: My Motto</span>
-    <span class="label-es">(Crea una frase motivadora original sobre prepararse bien)</span>
-    <input type="text" id="mottoBox" placeholder="Your original slogan here!">
+    <input type="text" id="mottoBox" placeholder="Write your original motivational slogan!">
 
-    <button id="submitBtn" class="btn-submit" onclick="finalSubmission()">SUBMIT & DOWNLOAD WORD / ENVIAR TAREA</button>
+    <button id="submitBtn" class="btn-submit" onclick="finalSubmission()">SUBMIT & DOWNLOAD WORD</button>
 </div>
 
 <script>
-    // URL DE TU GOOGLE SCRIPT (Misma que usaste antes)
     const scriptURL = "https://script.google.com/macros/s/AKfycbyxUZYD8cFFTZpI-5vjWtroFLLm-cA_ZpIszHIdG52YmsUfgJjEmrIVw31zDeGFfkGqEw/exec";
     
     const database = {
@@ -166,9 +152,9 @@
             let o = document.createElement('option'); o.value = c; o.innerHTML = c;
             cs.appendChild(o);
         });
-        if (localStorage.getItem("speech_reflection_submitted") === "true") {
+        if (localStorage.getItem("speech_reflection_done") === "true") {
             document.querySelectorAll('input, select, textarea, button').forEach(el => el.disabled = true);
-            document.getElementById('blockMessage').style.display = 'block';
+            alert("Tarea enviada anteriormente.");
         }
     };
 
@@ -191,44 +177,31 @@
         const blob = new Blob(['\ufeff', header + content + footer], { type: 'application/msword' });
         const link = document.createElement("a");
         link.href = URL.createObjectURL(blob);
-        link.download = `HomeTask_Reflection_${name.replace(/ /g, '_')}.doc`;
+        link.download = `Reflection_${name.replace(/ /g, '_')}.doc`;
         link.click();
     }
 
     async function finalSubmission() {
         const name = document.getElementById('studentSelect').value;
         const course = document.getElementById('courseSelect').value;
-        const t1 = document.getElementById('tip1').value.trim();
-        const t2 = document.getElementById('tip2').value.trim();
-        const t3 = document.getElementById('tip3').value.trim();
-        const prac = document.getElementById('practiceExpl').value.trim();
-        const reflect = document.getElementById('reflectionBox').value.trim();
-        const motto = document.getElementById('mottoBox').value.trim();
+        const t1 = document.getElementById('tip1').value;
+        const t2 = document.getElementById('tip2').value;
+        const t3 = document.getElementById('tip3').value;
+        const pr = document.getElementById('practiceExpl').value;
+        const re = document.getElementById('reflectionBox').value;
+        const mo = document.getElementById('mottoBox').value;
 
-        if (!name || !t1 || !t2 || !t3 || !prac || !reflect || !motto) return alert("Por favor, completa todas las secciones.");
+        if (!name || !t1 || !t2 || !t3 || !pr || !re || !mo) return alert("Please complete all sections!");
 
-        const summary = `TIPS:\n1. ${t1}\n2. ${t2}\n3. ${t3}\n\nHOW TO PRACTICE:\n${prac}\n\nREFLECTION:\n${reflect}\n\nMOTTO: ${motto}`;
+        const summary = `Tips: ${t1}, ${t2}, ${t3}\nPractice: ${pr}\nReflection: ${re}\nMotto: ${mo}`;
 
         try {
-            const btn = document.getElementById('submitBtn');
-            btn.innerText = "Enviando..."; btn.disabled = true;
-
-            await fetch(scriptURL, { 
-                method: 'POST', mode: 'no-cors', 
-                body: JSON.stringify({ firstName: name, course: course + " - HOME REFLECTION", text: summary }) 
-            });
-
-            const html = `<h2>PRESENTATION REFLECTION</h2><p><b>Student:</b> ${name}</p><hr><h3>Tips:</h3><ul><li>${t1}</li><li>${t2}</li><li>${t3}</li></ul><h3>Practice:</h3><p>${prac}</p><h3>Reflection:</h3><p>${reflect}</p><h3>Motto:</h3><p><b>"${motto}"</b></p>`;
-            downloadWord(name, course, html);
-
-            localStorage.setItem("speech_reflection_submitted", "true");
-            alert("✅ TAREA ENVIADA Y DESCARGADA. ¡Buen trabajo!");
+            await fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: JSON.stringify({ firstName: name, course: course + " - REFLECTION", text: summary }) });
+            downloadWord(name, course, `<h2>REFLECTION</h2><p><b>Student:</b> ${name}</p><p>${summary.replace(/\n/g, '<br>')}</p>`);
+            localStorage.setItem("speech_reflection_done", "true");
+            alert("✅ Submitted and Downloaded!");
             location.reload();
-        } catch (e) {
-            alert("Error al enviar. Intenta de nuevo.");
-            document.getElementById('submitBtn').innerText = "SUBMIT & DOWNLOAD WORD";
-            document.getElementById('submitBtn').disabled = false;
-        }
+        } catch (e) { alert("Error."); }
     }
 </script>
 </body>
