@@ -17,10 +17,11 @@
         
         header { text-align: center; border-bottom: 4px solid var(--primary); margin-bottom: 25px; padding-bottom: 10px; }
         h1 { color: var(--dark); margin: 0; font-size: 1.6rem; }
-        p.subtitle { margin: 5px 0; color: #7f8c8d; font-size: 0.9rem; }
-
-        .video-reminder { background: #fff9e6; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 5px solid var(--primary); font-size: 0.9rem; line-height: 1.4; }
         
+        .video-box { background: #000; padding: 10px; border-radius: 12px; margin-bottom: 20px; text-align: center; }
+        .video-link-btn { display: inline-block; background: #e74c3c; color: white; padding: 12px 24px; text-decoration: none; border-radius: 30px; font-weight: bold; margin: 10px 0; transition: 0.3s; }
+        .video-link-btn:hover { background: #c0392b; }
+
         .section-title { color: var(--primary); font-weight: bold; text-transform: uppercase; margin-top: 25px; display: block; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-bottom: 15px; }
 
         .student-info { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
@@ -30,16 +31,14 @@
         .step-item { background: #f9f9f9; padding: 15px; border-radius: 8px; border: 1px solid #eee; }
         .step-item label { font-weight: bold; font-size: 0.9rem; color: var(--dark); display: block; margin-bottom: 8px; }
 
-        textarea { resize: none; line-height: 1.6; }
-        #reflectionBox { height: 180px; font-size: 1.05rem; }
+        #reflectionBox { height: 180px; font-size: 1.05rem; resize: none; line-height: 1.6; }
         #mottoBox { font-weight: bold; color: var(--primary); text-align: center; font-size: 1.2rem; border-color: var(--primary); }
 
         .btn-group { display: flex; gap: 15px; margin-top: 30px; }
         .btn { flex: 1; padding: 18px; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 1.1rem; }
         .btn-submit { background: var(--success); color: white; box-shadow: 0 4px 0 #219150; }
-        .btn-submit:active { transform: translateY(4px); box-shadow: none; }
 
-        #blockMessage { display:none; background: #f8d7da; color: #721c24; padding: 20px; border-radius: 8px; text-align: center; font-weight: bold; margin-bottom: 20px; border: 1px solid #f5c6cb; }
+        #blockMessage { display:none; background: #f8d7da; color: #721c24; padding: 20px; border-radius: 8px; text-align: center; font-weight: bold; margin-bottom: 20px; }
     </style>
 </head>
 <body>
@@ -47,10 +46,15 @@
 <div class="container">
     <header>
         <h1>PRESENTATION COACH: ABBY'S TIPS</h1>
-        <p class="subtitle">Reflect on your speech and help a friend improve!</p>
+        <p>Watch the video and complete your reflection</p>
     </header>
 
-    <div id="blockMessage">⚠️ You have already submitted this reflection. Well done!</div>
+    <div id="blockMessage">⚠️ You have already submitted this reflection.</div>
+
+    <div class="video-box">
+        <p style="color: white; margin-bottom: 10px;">🎥 Click the button to watch Abby's Video:</p>
+        <a href="https://github.com/alvarocontreras-spec/Writing-III/blob/c616ab3862c2c73eedc96d78f053400ff576d360/Harmonize_1_U2_Project_coach.mp4" target="_blank" class="video-link-btn">▶️ WATCH VIDEO HERE</a>
+    </div>
 
     <div class="student-info">
         <select id="courseSelect" onchange="updateStudentList()">
@@ -61,38 +65,30 @@
         </select>
     </div>
 
-    <div class="video-reminder">
-        <strong>📺 Video Recap:</strong> Abby suggests that to be a great speaker, you must:
-        <br>1. <b>Speak slowly:</b> Don't rush when you are nervous.
-        <br>2. <b>Speak loudly:</b> Ensure the audience hears every word.
-        <br>3. <b>Practice:</b> Use your phone or family. "Practice makes perfect!"
-    </div>
-
     <span class="section-title">Part 1: The 3-Step Guide for a Friend</span>
     <div class="step-grid">
         <div class="step-item">
             <label>1. Speak slowly and carefully. Why is this important?</label>
-            <input type="text" id="step1" placeholder="Explain why we shouldn't speak too fast...">
+            <input type="text" id="step1" placeholder="Abby says: 'If you are nervous, you speak faster...'">
         </div>
         <div class="step-item">
             <label>2. Speak loudly and clearly. How does this help the audience?</label>
-            <input type="text" id="step2" placeholder="Describe the importance of being heard...">
+            <input type="text" id="step2" placeholder="Abby says: 'Say each word clearly...'">
         </div>
         <div class="step-item">
             <label>3. Practice makes perfect. Who can we practice with?</label>
-            <input type="text" id="step3" placeholder="Mention friends, family or tools like a phone...">
+            <input type="text" id="step3" placeholder="Abby says: 'Practice with your family or your phone...'">
         </div>
     </div>
 
     <span class="section-title">Part 2: Personal Reflection (5-8 lines)</span>
     <p style="font-size: 0.85rem; color: #666; margin-bottom: 10px;">
-        Think about your last topic speech: Which of Abby's tips is the hardest for you and why? 
-        How will you use these tips in your next presentation?
+        Reflect on your <b>Topic Speech</b>: Which tip is hardest for you? How will you improve next time?
     </p>
     <textarea id="reflectionBox" placeholder="Write your reflection here..."></textarea>
 
     <span class="section-title">Part 3: My Motivational Motto</span>
-    <input type="text" id="mottoBox" placeholder="Write your original motivational slogan here!">
+    <input type="text" id="mottoBox" placeholder="Example: Practice makes a Master!">
 
     <div class="btn-group">
         <button id="submitBtn" class="btn btn-submit" onclick="finalSubmission()">Submit & Download Word File</button>
@@ -102,6 +98,7 @@
 <script>
     const scriptURL = "https://script.google.com/macros/s/AKfycbyxUZYD8cFFTZpI-5vjWtroFLLm-cA_ZpIszHIdG52YmsUfgJjEmrIVw31zDeGFfkGqEw/exec";
     
+    // Database de estudiantes (puedes editar los nombres)
     const database = {
         "5thA": ["ARANEDA SEPÚLVEDA MATÍAS SANTIAGO", "AYALA OLIVARES MÁXIMO ALONSO", "CAMPUSANO PÉREZ ISIDORA MONTSERRAT", "CANESSA VEGA BERNARDO FRANCISCO", "CARRASCO RAMÍREZ JAVIERA PAZ", "CHAMORRO SAN MARTÍN SEBASTIÁN FRANCISCO", "CORREA LEAL SANTIAGO LEÓN", "CUKIC LUENGO BRUNO EDUARDO", "ESPINOZA OLIVARES LUCAS ALEJANDRO", "FERNÁNDEZ ESCOBAR MARTÍN FELIPE", "FERNÁNDEZ RODRIGUEZ FERNANDA NICOLE", "GARNIER VELÁSQUEZ MAXIMILIANO LORENZO", "GARZON MACUER AMANDA SOFÍA", "GONZÁLEZ ARRIAGADA SOFÍA ISIDORA", "IBARRA BARRAZA DOMINGA PAZ", "JARAMILLO CANALES JULIETA ANTONIA", "JIMÉNEZ MONSALVES FERNANDA PAZ", "MACUADA GONZÁLEZ TOMÁS ALONSO", "MEZA MISTO FRANCISCA IGNACIA", "MUÑOZ OLIVOS SOFÍA ANTONIA", "NECULQUEO MURA JAVIER MATIAS", "OSORIO MUÑOZ LUCIANO", "PARRA ALIAGA AGUSTÍN CLEMENTE LEÓN", "RIQUELME CONTRERAS JULIETA ISADORA", "SALINAS SAAVEDRA EMILIANO IGNACIO", "SÁNCHEZ MORAGA NICOLÁS ARTURO", "SEISDEDOS CARVAJAL ANGELA GUADALUPE", "SEREY VALDES RENATO CLEMENTE", "SEYMOUR REYES TRINIDAD EMILIA", "VALLEJOS NAVARRO JOSEFA AGUSTINA", "VELOSO MUÑOZ ISABELLA AMARAL", "VERGARA FUENZALIDA JOAQUÍN IGNACIO", "VERGARA MARÍN DAMIÁN ALONSO", "VINES ZÚÑIGA DAMIÁN ALBERTO", "ZURITA BUSTOS ANTONIA INÉS"],
         "5thB": ["ACUÑA ALARCÓN DOMINGO", "AGUILAR MENARES VALENTÍN IGNACIO", "ALLENDE GARAY ALFONSO ERNESTO", "ARA CAMPUSANO VALENTINA ANTONIA", "ARAYA ESCALONA JOSE MANUEL", "ÁVILA RAMÍREZ AMANDA", "BOBADILLA PONCE VICENTE IGNACIO", "CASTILLO CARVAJAL TRINIDAD PAZ", "CONTRERAS RAMOS AMANDA BELÉN", "DÍAZ CORTÉS NICOLÁS IGNACIO", "DURÁN FREZ FLORENCIA CATALINA", "FARÍAS VALENZUELA REBECCA ESPERANZA", "GARRIDO DONOSO AMANDA", "GÓMEZ BURGOS ROSARIO BELÉN", "GONZÁLEZ ESPINOZA ARANTZA MICAELA", "HOLZMANN CÁRCAMO ANTONIA IGNACIA", "LAZO DÍAZ RENATA ANDREA", "LÓPEZ OJEDA AGUSTÍN SANTIAGO", "MENESES MADARIAGA GASPAR BAUTISTA", "MORAGA MARTINEZ VICTORIA ESPERANZA", "MOSQUEIRA VALDIVIA CAMILO ANDRÉS", "ORMEÑO LACHR PEDRO JOAQUIN", "OSORNO ARRIAGADA AMANDA MARIANNE", "PARRA PIMENTEL CONSUELO EMILIA", "REYES MARCHANT EMILIANO BAUTISTA", "RIVERA SAAVEDRA DIEGO ANDRÉS", "ROMÁN PEÑA GUSTAVO EMILIO", "RUIZ GARCÍA SANTIAGO ALONSO", "RUZ REYES MATÍAS ALEJANDRO", "SARRIA ASTUDILLO EVA MAGDALENA", "TRUJILLO BURGOS SANTIAGO ALONSO", "URQUEJO CHACANO RAFAELA", "VALENZUELA GONZÁLEZ JOSÉ MIGUEL", "VÁSQUEZ TAPIA SOFÍA ANTONIA", "VILLANUEVA SIMON GASPAR ALBERTO", "ZAMORA TORRES FACUNDO AGUSTÍN"],
@@ -139,7 +136,7 @@
         const blob = new Blob(['\ufeff', header + content + footer], { type: 'application/msword' });
         const link = document.createElement("a");
         link.href = URL.createObjectURL(blob);
-        link.download = `AbbyTips_Reflection_${course}_${name.replace(/ /g, '_')}.doc`;
+        link.download = `AbbyReflection_${course}_${name.replace(/ /g, '_')}.doc`;
         link.click();
     }
 
@@ -152,10 +149,10 @@
         const reflect = document.getElementById('reflectionBox').value.trim();
         const motto = document.getElementById('mottoBox').value.trim();
 
-        if (!name || !s1 || !s2 || !s3 || !reflect || !motto) return alert("Please complete all sections of the task!");
+        if (!name || !s1 || !s2 || !s3 || !reflect || !motto) return alert("Please complete all sections!");
 
         const words = reflect.split(/\s+/).filter(w => w.length > 0).length;
-        if (words < 25) return alert("Your reflection is a bit short. Try to write at least 5 lines (approx 25-30 words)!");
+        if (words < 20) return alert("Your reflection is too short. Try to explain a bit more!");
 
         const btn = document.getElementById('submitBtn');
         btn.innerText = "Submitting..."; btn.disabled = true;
@@ -165,28 +162,26 @@
         try {
             await fetch(scriptURL, { 
                 method: 'POST', mode: 'no-cors', 
-                body: JSON.stringify({ firstName: name, course: course + " - ABBY TASK", text: summaryText }) 
+                body: JSON.stringify({ firstName: name, course: course + " - ABBY REFLECTION", text: summaryText }) 
             });
 
             const htmlDoc = `
-                <h2>PRESENTATION TIPS REFLECTION</h2>
+                <h2>ABBY'S PRESENTATION TIPS REFLECTION</h2>
                 <p><b>Student:</b> ${name} | <b>Class:</b> ${course}</p>
                 <hr>
                 <h3>1. Guide for a Friend:</h3>
-                <ul>
-                    <li><b>Slowly:</b> ${s1}</li>
-                    <li><b>Loudly:</b> ${s2}</li>
-                    <li><b>Practice:</b> ${s3}</li>
-                </ul>
+                <p><b>Slowly:</b> ${s1}</p>
+                <p><b>Loudly:</b> ${s2}</p>
+                <p><b>Practice:</b> ${s3}</p>
                 <h3>2. Personal Reflection:</h3>
                 <p>${reflect.replace(/\n/g, '<br>')}</p>
-                <h3>3. Motivational Motto:</h3>
-                <p style="font-size: 14pt; color: orange;"><b>"${motto}"</b></p>
+                <h3>3. Motto:</h3>
+                <p><b>"${motto}"</b></p>
             `;
             
             downloadWord(name, course, htmlDoc);
             localStorage.setItem("abby_reflection_submitted", "true");
-            alert("✅ SUCCESS!\n1. Your work was sent to the Teacher's Drive.\n2. Your Word file is downloaded. Upload it to Classroom!");
+            alert("✅ SUBMITTED SUCCESSFULLY!");
             location.reload();
         } catch (e) {
             alert("Error submitting. Please try again.");
